@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Lazy load page components
+const Home = lazy(() => import('./pages/Home'));
+const Trending = lazy(() => import('./pages/Trending'));
+const MustSee = lazy(() => import('./pages/MustSee'));
+const HiddenGems = lazy(() => import('./pages/HiddenGems'));
+const DramaDetail = lazy(() => import('./pages/DramaDetail'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Suspense fallback={
+        <div className="full-page-loading">
+          <div className="spinner"></div>
+          <p>Loading your drama experience...</p>
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/trending" element={<Trending />} /> {/* Fixed typo from 'trending' to 'trending' */}
+          <Route path="/must-see" element={<MustSee />} />
+          <Route path="/hidden-gems" element={<HiddenGems />} />
+          <Route path="/drama/:id" element={<DramaDetail />} />
+        </Routes>
+      </Suspense>
+      <Footer />
+    </Router>
   );
 }
 
