@@ -61,3 +61,13 @@ export const getGenreDetails = async (genreId) => {
     return {};
   }
 };
+
+export const searchDramas = async (query) => {
+  try {
+    const response = await axios.get(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+    return response.data?.data || response.data || [];
+  } catch (error) {
+    console.error("Error searching dramas:", error);
+    return [];
+  }
+};

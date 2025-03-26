@@ -22,7 +22,7 @@ export default function Genres() {
 
   return (
     <main className="page-container">
-      <h1>Drama Genres</h1>
+      <h1>All Genres</h1>
       {loading ? (
         <div className="full-page-loading">
           <div className="spinner"></div>
@@ -32,7 +32,7 @@ export default function Genres() {
           {genres.map(genre => (
             <Link to={`/genres/${genre.id}`} key={genre.id} className="genre-card">
               <h3>{genre.name}</h3>
-              <p>{genre.count} dramas</p>
+              <p>{genre.count}</p>
             </Link>
           ))}
         </div>

@@ -10,6 +10,7 @@ const MustSee = lazy(() => import('./pages/MustSee'));
 const HiddenGems = lazy(() => import('./pages/HiddenGems'));
 const DramaDetail = lazy(() => import('./pages/DramaDetail'));
 const Genres = lazy(() => import('./pages/Genres'));
+const Search = lazy(() => import('./pages/Search'));
 const GenreDetail = lazy(() => import('./pages/GenreDetail'));
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/drama/:id" element={<DramaDetail />} />
           <Route path="/genres" element={<Genres />} />
           <Route path="/genres/:genreId" element={<GenreDetail />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Suspense>
       <Footer />
