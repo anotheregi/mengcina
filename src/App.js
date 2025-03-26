@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 // Lazy load page components
 const Home = lazy(() => import('./pages/Home'));
@@ -17,7 +18,7 @@ function App() {
       <Suspense fallback={
         <div className="full-page-loading">
           <div className="spinner"></div>
-          <p>Loading your drama experience...</p>
+          <p>Loading...</p>
         </div>
       }>
         <Routes>
