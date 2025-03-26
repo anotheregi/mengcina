@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Lazy load all page components
+// Lazy load page components
 const Home = lazy(() => import('./pages/Home'));
 const Trending = lazy(() => import('./pages/Trending'));
 const MustSee = lazy(() => import('./pages/MustSee'));
@@ -14,22 +14,20 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <main className="main-content">
-        <Suspense fallback={
-          <div className="full-page-loading">
-            <div className="spinner"></div>
-            <p>Loading your dramas...</p>
-          </div>
-        }>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/trending" element={<Trending />} />
-            <Route path="/must-see" element={<MustSee />} />
-            <Route path="/hidden-gems" element={<HiddenGems />} />
-            <Route path="/drama/:id" element={<DramaDetail />} />
-          </Routes>
-        </Suspense>
-      </main>
+      <Suspense fallback={
+        <div className="full-page-loading">
+          <div className="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/must-see" element={<MustSee />} />
+          <Route path="/hidden-gems" element={<HiddenGems />} />
+          <Route path="/drama/:id" element={<DramaDetail />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </Router>
   );
