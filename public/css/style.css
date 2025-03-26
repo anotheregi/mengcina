@@ -23,14 +23,20 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-/*page*/
+
+/* Loading Spinner */
 .full-page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
 }
 
 .spinner {
@@ -48,18 +54,6 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
 /* Navbar */
 .navbar {
   background: white;
@@ -214,7 +208,6 @@ body {
 }
 
 /* Footer */
-/* Footer Styles */
 .footer {
   background: #2c3e50;
   color: white;
@@ -258,37 +251,8 @@ body {
   font-size: 0.9rem;
   color: #ecf0f1;
 }
-/*----*/
-.card-skeleton {
-  background: #f0f0f0;
-  border-radius: 8px;
-  overflow: hidden;
-}
 
-.image-placeholder {
-  height: 0;
-  padding-bottom: 150%;
-  background: #e0e0e0;
-}
-
-.content-placeholder {
-  padding: 15px;
-}
-
-.title-placeholder {
-  height: 20px;
-  background: #e0e0e0;
-  margin-bottom: 10px;
-}
-
-.meta-placeholder {
-  height: 15px;
-  background: #e0e0e0;
-  width: 80%;
-}
-/*- */
-
-/* Hidden Gems Special Styling */
+/* Hidden Gems Badge */
 .hidden-gem-badge {
   position: absolute;
   top: 10px;
@@ -321,7 +285,6 @@ body {
   
   .drama-grid {
     grid-template-columns: repeat(2, 1fr);
-    transition: all 0.3s ease;
   }
   
   .hero h1 {

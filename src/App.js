@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Loading from './components/Loading';
 
-// Lazy load page components with dynamic imports
+// Lazy load all page components
 const Home = lazy(() => import('./pages/Home'));
 const Trending = lazy(() => import('./pages/Trending'));
 const MustSee = lazy(() => import('./pages/MustSee'));
@@ -15,7 +14,12 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Suspense fallback={<Loading fullPage={true} message="Preparing your drama experience..." />}>
+      <Suspense fallback={
+        <div className="full-page-loading">
+          <div className="spinner"></div>
+          <p>Loading...</p>
+        </div>
+      }>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/trending" element={<Trending />} />
