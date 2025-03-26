@@ -10,7 +10,7 @@ export default function Navbar() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      navigate(`/search?searchValue=${encodeURIComponent(searchQuery.trim())}`);
       setSearchQuery(''); // Clear input after search
     }
   };
@@ -31,14 +31,19 @@ export default function Navbar() {
               placeholder="Search drama..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search dramas"
             />
-            <button type="submit" className="search-button">
+            <button 
+              type="submit" 
+              className="search-button"
+              aria-label="Submit search"
+            >
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </form>
         </div>
         
-        <button className="mobile-menu">
+        <button className="mobile-menu" aria-label="Mobile menu">
           <FontAwesomeIcon icon={faBars} />
         </button>
       </div>
