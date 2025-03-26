@@ -14,20 +14,22 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Suspense fallback={
-        <div className="full-page-loading">
-          <div className="spinner"></div>
-          <p>Loading...</p>
-        </div>
-      }>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/trending" element={<Trending />} />
-          <Route path="/must-see" element={<MustSee />} />
-          <Route path="/hidden-gems" element={<HiddenGems />} />
-          <Route path="/drama/:id" element={<DramaDetail />} />
-        </Routes>
-      </Suspense>
+      <main className="main-content">
+        <Suspense fallback={
+          <div className="full-page-loading">
+            <div className="spinner"></div>
+            <p>Loading your dramas...</p>
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/trending" element={<Trending />} />
+            <Route path="/must-see" element={<MustSee />} />
+            <Route path="/hidden-gems" element={<HiddenGems />} />
+            <Route path="/drama/:id" element={<DramaDetail />} />
+          </Routes>
+        </Suspense>
+      </main>
       <Footer />
     </Router>
   );

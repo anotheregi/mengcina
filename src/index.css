@@ -17,3 +17,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Error Page Styles */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.error-page h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+/* Main Content */
+.main-content {
+  min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+  padding: 20px 0;
+}
