@@ -9,6 +9,8 @@ const Trending = lazy(() => import('./pages/Trending'));
 const MustSee = lazy(() => import('./pages/MustSee'));
 const HiddenGems = lazy(() => import('./pages/HiddenGems'));
 const DramaDetail = lazy(() => import('./pages/DramaDetail'));
+const Genres = lazy(() => import('./pages/Genres'));
+const GenreDetail = lazy(() => import('./pages/GenreDetail'));
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/must-see" element={<MustSee />} />
           <Route path="/hidden-gems" element={<HiddenGems />} />
           <Route path="/drama/:id" element={<DramaDetail />} />
+          <Route path="/genres" element={<Genres />} />
+          <Route path="/genres/:genreId" element={<GenreDetail />} />
         </Routes>
       </Suspense>
       <Footer />

@@ -9,6 +9,7 @@ export default function Navbar() {
         <Link to="/" className="logo">Mengcina</Link>
         
         <div className="nav-links">
+        <Link to="/genres">Genre</Link>
           <Link to="/trending">Trending</Link>
           <Link to="/must-see">Must See</Link>
           <Link to="/hidden-gems">Hidden Gems</Link>

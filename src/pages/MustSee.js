@@ -24,7 +24,9 @@ export default function MustSee() {
     <main className="page-container">
       <h1>Must-See Dramas</h1>
       {loading ? (
-        <p>Loading...</p>
+        <div className="full-page-loading">
+          <div className="spinner"></div>
+        </div>
       ) : (
         <div className="drama-grid">
           {dramas.map(drama => (

@@ -41,3 +41,23 @@ export const getDramaDetails = async (id) => {
     return {};
   }
 };
+
+export const getGenres = async () => {
+  try {
+    const response = await axios.get(`${API_BASE}/genres`);
+    return response.data?.data || response.data || [];
+  } catch (error) {
+    console.error("Error fetching genres:", error);
+    return [];
+  }
+};
+
+export const getGenreDetails = async (genreId) => {
+  try {
+    const response = await axios.get(`${API_BASE}/genres/${genreId}`);
+    return response.data?.data || response.data || {};
+  } catch (error) {
+    console.error("Error fetching genre details:", error);
+    return {};
+  }
+};

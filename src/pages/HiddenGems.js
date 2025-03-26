@@ -24,7 +24,9 @@ export default function HiddenGems() {
     <main className="page-container">
       <h1>Hidden Gem Dramas</h1>
       {loading ? (
-        <p>Loading underrated treasures...</p>
+        <div className="full-page-loading">
+          <div className="spinner"></div>
+        </div>
       ) : dramas.length > 0 ? (
         <div className="drama-grid">
           {dramas.map(drama => (
