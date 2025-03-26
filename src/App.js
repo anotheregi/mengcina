@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loading from './components/Loading';
 
-// Lazy load page components
+// Lazy load page components with dynamic imports
 const Home = lazy(() => import('./pages/Home'));
 const Trending = lazy(() => import('./pages/Trending'));
 const MustSee = lazy(() => import('./pages/MustSee'));
@@ -15,15 +15,10 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Suspense fallback={
-        <div className="full-page-loading">
-          <div className="spinner"></div>
-          <p>Loading...</p>
-        </div>
-      }>
+      <Suspense fallback={<Loading fullPage={true} message="Preparing your drama experience..." />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/trending" element={<Trending />} /> {/* Fixed typo from 'trending' to 'trending' */}
+          <Route path="/trending" element={<Trending />} />
           <Route path="/must-see" element={<MustSee />} />
           <Route path="/hidden-gems" element={<HiddenGems />} />
           <Route path="/drama/:id" element={<DramaDetail />} />

@@ -1,11 +1,27 @@
-export default function CardSkeleton() {
+// components/CardSkeleton.js
+import React from 'react';
+import './App.css';
+
+export const CardSkeleton = () => {
   return (
-    <div className="card-skeleton animate-pulse">
-      <div className="image-placeholder bg-gray-200 rounded-t-lg w-full h-48"></div>
-      <div className="content-placeholder p-4">
-        <div className="title-placeholder bg-gray-200 h-5 w-3/4 rounded mb-2"></div>
-        <div className="meta-placeholder bg-gray-200 h-4 w-1/2 rounded"></div>
+    <div className="card-skeleton">
+      <div className="skeleton" style={{
+        height: '0',
+        paddingBottom: '150%',
+        borderRadius: '8px 8px 0 0'
+      }}></div>
+      <div style={{ padding: '15px' }}>
+        <div className="skeleton" style={{
+          height: '20px',
+          marginBottom: '10px',
+          borderRadius: '4px'
+        }}></div>
+        <div className="skeleton" style={{
+          height: '15px',
+          width: '80%',
+          borderRadius: '4px'
+        }}></div>
       </div>
     </div>
   );
-}
+};

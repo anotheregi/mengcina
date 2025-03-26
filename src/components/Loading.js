@@ -1,11 +1,11 @@
 import React from 'react';
-import './Loading.css'; // We'll create this next
+import './Loading.css'; // Create this file
 
-const Loading = () => {
+const Loading = ({ fullPage = false, message = 'Loading...' }) => {
   return (
-    <div className="loading-container">
-      <div className="loading-spinner"></div>
-      <p className="loading-text">Loading Dramas...</p>
+    <div className={fullPage ? 'full-page-loading' : 'inline-loading'}>
+      <div className="spinner"></div>
+      <p className="loading-text">{message}</p>
     </div>
   );
 };
