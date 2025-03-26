@@ -22,7 +22,7 @@ export default function Genres() {
 
   return (
     <main className="page-container">
-      <h1>All Genres</h1>
+      <h1>Browse by Genres</h1>
       {loading ? (
         <div className="full-page-loading">
           <div className="spinner"></div>

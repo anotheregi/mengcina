@@ -64,7 +64,7 @@ export const getGenreDetails = async (genreId) => {
 
 export const searchDramas = async (query) => {
   try {
-    const response = await axios.get(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+    const response = await axios.get(`${API_BASE}/search?searchValue=${encodeURIComponent(query)}`);
     return response.data?.data || response.data || [];
   } catch (error) {
     console.error("Error searching dramas:", error);
